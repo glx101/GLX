@@ -292,8 +292,9 @@
 ## Random Builtins Documentation
 ### Random Builtins
 
-|`Label` | Arguments | Description|
 |-----------------------------------------------------------------------------------------------
+
+|`Label` | Arguments | Description|
 
 |`random_int`  | min, max  |  Generates a random integer between min and max (inclusive).
 
@@ -304,12 +305,16 @@
 |`random_choice` | src | Randomly selects and returns one element from array src.
 
 |`random_bytes` | size | Generates size random bytes, returns as byte array or similar.
+
 |-------------------------------------------------------------------------------------------------
 
 
 ## Exit
+
 |----------------------------------------------------------------------------
+
 `Label` 		| Arguments | Description|
 
 |`exit_code` 	| code		| to exit the current running program|
+
 |----------------------------------------------------------------------------
