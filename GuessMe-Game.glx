@@ -1,25 +1,43 @@
-
 visible persist [
-	success = [&l, 0]
 	count  = 0
 ]
 
 label visit[persist] main() {
 
 	print(src="Welcome to the Game, Guess-The-Number")
+	print(src="Guess a number between 1 to 50")
+	rand_number = random_int(min=1, max=50)
 	
 	label @loop {
-		print(src="Guess a number between 1 to 50")
-		user = cast_type(value=input(prompt=""), type=_UINT_)
+
+		user = cast_type(value=input(prompt="Enter : "), type=__INT__)
+		if user == 0 {
+			jump done
+		} else {
+
+			if user > rand_number {
+				print(src="User Number is Big")
+			} elif user < rand_number {
+				print(src="User Number is Small")
+			} else {
+				print(src="You Win The match")
+				jump done
+			}
+			count++
+			jump loop
+		}
+
 	}
 
-	if(count == 0) {
-		jump loop
-	} else {
-		pass
+	label @done {
+		if count == 0 {
+			jump loop
+		} else {
+			pass
+		}	
 	}
 	
-	jump loop
+	jump done
 }
 
 main()
