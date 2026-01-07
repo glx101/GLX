@@ -25,7 +25,7 @@
 | `array_clear` | src | Clears all elements of array src. |
 | `array_clone` | src | Returns a shallow clone of array src. |
 | `array_slice` | src, start, end | Returns slice of src from start to end. |
-| `array_concat` | a, b | Returns new array = a followed by b. |
+| `array_concat` | st, nd | Returns new array = a followed by b. |
 | `array_reverse` | src | Reverses array src (in-place or returns reversed depending on impl). |
 | `array_sort` | src | Sorts array src (rules depend on your impl). |
 | `array_find` | src, value | Finds value in src (likely returns index or nil). |
@@ -94,9 +94,9 @@
 | `math_sin` | src | Sine. |
 | `math_sqrt` | src | Square root. |
 | `math_tan` | src | Tangent. |
-| `math_pow` | a, b | Power: a^b. |
-| `math_min` | a, b | Returns smaller of a and b. |
-| `math_max` | a, b | Returns larger of a and b. |
+| `math_pow` | st, nd | Power: a^b. |
+| `math_min` | st, nd | Returns smaller of a and b. |
+| `math_max` | st, nd | Returns larger of a and b. |
 
 ## String Builtins
 
@@ -110,8 +110,8 @@
 | `str_trim` | src | Trim whitespace. |
 | `str_capitalize` | src | Capitalizes string (rules depend on impl). |
 | `str_reverse` | src | Reverses string. |
-| `str_concat` | a, b | Concatenates a + b. |
-| `str_compare` | a, b | Compares two strings (likely -1/0/1 or bool depending on impl). |
+| `str_concat` | st, nd | Concatenates a + b. |
+| `str_compare` | st, nd | Compares two strings (likely -1/0/1 or bool depending on impl). |
 | `str_contains` | src, sub | True if src contains substring sub. |
 | `str_starts_with` | src, prefix | True if src starts with prefix. |
 | `str_ends_with` | src, suffix | True if src ends with suffix. |
@@ -165,7 +165,7 @@
 | `dict_keys` | src | Returns array of keys. |
 | `dict_values` | src | Returns array of values. |
 | `dict_items` | src | Returns array of key/value pairs (format depends on impl). |
-| `dict_merge` | a, b | Merges dictionaries a and b (rules depend on impl). |
+| `dict_merge` | st, nd | Merges dictionaries a and b (rules depend on impl). |
 | `dict_update` | src, other | Updates src with entries from other. |
 | `dict_pop` | src, key | Removes key and returns its value. |
 | `dict_popitem` | src | Pops and returns one (key,value) item. |
@@ -280,9 +280,9 @@
 | `json_keys` | obj | Returns array of keys from JSON object. |
 | `json_values` | obj | Returns array of values from JSON object. |
 | `json_type` | value | Returns JSON type of value as string ("object", "array", "string", etc.). |
-| `json_merge` | a, b | Merges two JSON objects a and b. |
+| `json_merge` | st, nd | Merges two JSON objects a and b. |
 | `json_clone` | value | Creates a deep clone of JSON value. |
-| `json_equal` | a, b | Checks if two JSON values are equal. |
+| `json_equal` | st, nd | Checks if two JSON values are equal. |
 | `json_number` | value | Converts value to JSON number type. |
 | `json_string` | value | Converts value to JSON string type. |
 | `json_bool` | value | Converts value to JSON boolean type. |
