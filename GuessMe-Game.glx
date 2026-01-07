@@ -1,0 +1,25 @@
+
+visible persist [
+	success = [&l, 0]
+	count  = 0
+]
+
+label visit[persist] main() {
+
+	print(src="Welcome to the Game, Guess-The-Number")
+	
+	label @loop {
+		print(src="Guess a number between 1 to 50")
+		user = cast_type(value=input(prompt=""), type=_UINT_)
+	}
+
+	if(count == 0) {
+		jump loop
+	} else {
+		pass
+	}
+	
+	jump loop
+}
+
+main()

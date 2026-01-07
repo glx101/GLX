@@ -53,11 +53,11 @@ but wait, an error occurred:
 visit and visible are options which hold data to make some variables static.
 
 Example:
-visible my_block(
+visible my_block[
     counter = 0,
     appName = "MyApp",
     maxUsers = 100
-)
+]
 
 Because after execution of the program, all data from that function which was running is lost, but visible is a way to make data static for that function.
 Static means after function discharge, values and variables are not removed from memory.
@@ -71,9 +71,9 @@ How to declare a function
     ./src/Test/labels.glx
 */
 
-visible inc (
+visible inc [
     count = 0
-)
+]
 
 label visit[inc] count_func() {
     count++
@@ -105,9 +105,9 @@ Second Example
     src/Test/labels.glx
 */
 
-visible inc (
+visible inc [
     count = 0
-)
+]
 
 label visit[inc] count_func() {
     print(src=++count)
