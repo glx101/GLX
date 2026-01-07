@@ -294,6 +294,7 @@
 
 |`Label` | Arguments | Description|
 |-----------------------------------------------------------------------------------------------
+
 |`random_int`  | min, max  |  Generates a random integer between min and max (inclusive).
 
 |`random_float` |min, max | Generates a random floating-point number between min and max.
