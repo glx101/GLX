@@ -294,12 +294,13 @@
 
 `Label` | Arguments | Description
 
-`random_int`  | min, max  |  Generates a random integer between min and max (inclusive).
+|`random_int`  | min, max  |  Generates a random integer between min and max (inclusive).
+|`random_float` |min, max | Generates a random floating-point number between min and max.
+|`random_bool` |Generates a random boolean value (true or false).
+|`random_choice` | src | Randomly selects and returns one element from array src.
+|`random_bytes` | size | Generates size random bytes, returns as byte array or similar.
 
-`random_float` |min, max | Generates a random floating-point number between min and max.
 
-`random_bool` |Generates a random boolean value (true or false).
-
-`random_choice` | src | Randomly selects and returns one element from array src.
-
-`random_bytes` | size | Generates size random bytes, returns as byte array or similar.
+## Exit
+`Label` 		| Arguments | Description
+`exit_code` 	| code		| to exit the current running program
