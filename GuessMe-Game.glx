@@ -12,7 +12,7 @@ label visit[persist] main() {
 
 		user = cast_type(value=input(prompt="Enter : "), type=__INT__)
 		if user == 0 {
-			jump done
+			exit_code(code=0)
 		} else {
 
 			if user > rand_number {
