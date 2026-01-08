@@ -1,9 +1,9 @@
 
-visible persist [
-    handler = nil
-]
 
 label visit[] main()
 {
-    handler = read_file("./Test.glx", "")
+    ptr = file_open(path="/home/danishk/Documents/GLX/Test.glx", mode=__FILE_READ__)
+    content = file_read(handle=ptr)
+
+    print(src=content)
 }

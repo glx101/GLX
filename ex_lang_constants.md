@@ -58,7 +58,7 @@
 
 | Constant | Value | Description |
 |----------|-------|-------------|
-| `__FILE_READ__` | `"r` | Open file for reading |
+| `__FILE_READ__` | `"r"` | Open file for reading |
 | `__FILE_WRITE__` | `"w"` | Open file for writing |
 | `__FILE_APPEND__` | `"a"` | Open file for appending |
 | `__FILE_RWC_` | `"rw"` | Create file if it doesn't exist |
