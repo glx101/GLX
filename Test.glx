@@ -1,0 +1,15 @@
+
+_define_ subtract(name) [
+    print(src=x-y)
+]
+
+label visit[] main() {
+    x = 10
+    y = 4
+    #subtract("danishk")
+
+    // proof
+    print(src=name)
+}
+
+main()

@@ -1,0 +1,36 @@
+
+visible persist [
+    files_dir = [&l, 0]
+]
+
+label visit[persist] print_dirs()
+{
+    for item _in_ files_dir {
+
+        print(src="IS-DIR [" + cast_type(value=dir_is_dir(path=item), type=__STRING__) + "] ITEM-NAME = [" + item+"]")
+        if dir_is_dir(path=item) {
+            print(src="DIR-PERMISSION: " + cast_type(value=dir_permissions(path=item), type=__STRING__) + " ")
+            print(src="MODIFIED TIME : " + cast_type(value=dir_modified_time(path=item), type=__STRING__))
+            print(src="=============================================================================")
+        } else {
+            print(src="FILE-PERMISSION: " + cast_type(value=file_permissions(path=item), type=__STRING__) + " ")
+            print(src="CRETE_DATE : " + cast_type(value=file_created_time(path=item), type=__STRING__))
+            print(src="=============================================================================")
+        }
+        print(src="")
+    }
+}
+
+label visit[persist] main(path=cur) {
+
+    dirs = nil
+    if dir_exists(path=cur) {
+        dirs = dir_read_all(path=cur)
+    }
+    files_dir = dirs
+}
+
+u_path = input(prompt="Enter Path ")
+
+main(path=u_path)
+print_dirs()
