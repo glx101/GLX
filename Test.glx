@@ -1,22 +1,19 @@
 
-_ifndef_ subtract
+visible this [
+    count = 0
+]
 
-    _define_ subtract(src, tar) [
-
-        print(src=_and_[src, tar])
-        print(src=_or_[src, tar])
-        print(src=_com_[src])
-        print(src=_lsh_[src, tar])
-        print(src=_rsh_[src, tar])
-        
-    ]
-_endif_
-
-label visit[] main() {
-
-    #subtract(45, 43)
+label visit[this] println()
+{
+    print(src= count)
 }
 
+label visit[this] main()
+{
+    count++
+    count++
+    count++
+}
 main()
-
+println()
 // Hello This is A Comment

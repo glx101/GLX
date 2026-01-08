@@ -1,28 +1,30 @@
 visible persist [
-    ptr = nil
+    ptr = cast_type(value=0, type=__UINT__),
+    data = cast_type(value="", type=__STRING__)
 ]
 
-label visit [] read(handle=ptr) {
+label visit [persist] read() {
+    print(src=ptr)
     return file_read(handle=ptr)
 }
 
-label visit[] append_comment(handle=ptr, data=msg) {
+label visit[persist] append_comment() {
     file_append(handle=ptr, data=msg)
 }
 
 label visit[persist] main()
 {
     ptr = file_open(path="/home/danishk/Documents/GLX/Test.glx", mode=__FILE_READ__)
-    print(src=read(handle=ptr))
+    print(src=read())
     file_close(handle=ptr)
 
     ptr = file_open(path="/home/danishk/Documents/GLX/Test.glx", mode=__FILE_APPEND__)
     msg = "\n// Hello This is A Comment\n"
-    append_comment(handle=ptr, data=msg)
+    append_comment()
     file_close(handle=ptr)
 
     ptr = file_open(path="/home/danishk/Documents/GLX/Test.glx", mode=__FILE_READ__)
-    print(src=read(handle=ptr))
+    print(src=read())
     file_close(handle=ptr)
 }
 
