@@ -1,9 +1,29 @@
+visible persist [
+    ptr = nil
+]
 
+label visit [] read(handle=ptr) {
+    return file_read(handle=ptr)
+}
 
-label visit[] main()
+label visit[] append_comment(handle=ptr, data=msg) {
+    file_append(handle=ptr, data=msg)
+}
+
+label visit[persist] main()
 {
     ptr = file_open(path="/home/danishk/Documents/GLX/Test.glx", mode=__FILE_READ__)
-    content = file_read(handle=ptr)
+    print(src=read(handle=ptr))
+    file_close(handle=ptr)
 
-    print(src=content)
+    ptr = file_open(path="/home/danishk/Documents/GLX/Test.glx", mode=__FILE_APPEND__)
+    msg = "\n// Hello This is A Comment\n"
+    append_comment(handle=ptr, data=msg)
+    file_close(handle=ptr)
+
+    ptr = file_open(path="/home/danishk/Documents/GLX/Test.glx", mode=__FILE_READ__)
+    print(src=read(handle=ptr))
+    file_close(handle=ptr)
 }
+
+main()
