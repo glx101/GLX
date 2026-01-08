@@ -3,9 +3,18 @@ visible this [
     count = 0
 ]
 
-label visit[this] println()
+visible _2nd [
+    some = nil
+]
+
+label visit[this, _2nd] println()
 {
     print(src= count)
+    some = count
+}
+
+label visit[_2nd] dothis() {
+    print(src=some)
 }
 
 label visit[this] main()
@@ -16,4 +25,5 @@ label visit[this] main()
 }
 main()
 println()
+dothis()
 // Hello This is A Comment
