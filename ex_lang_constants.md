@@ -58,11 +58,11 @@
 
 | Constant | Value | Description |
 |----------|-------|-------------|
-| `__FILE_READ__` | `"READ"` | Open file for reading |
-| `__FILE_WRITE__` | `"WRITE"` | Open file for writing |
-| `__FILE_APPEND__` | `"APPEND"` | Open file for appending |
-| `__FILE_CREATE__` | `"CREATE"` | Create file if it doesn't exist |
-| `__FILE_TRUNCATE__` | `"TRUNCATE"` | Truncate file to zero length |
+| `__FILE_READ__` | `"r` | Open file for reading |
+| `__FILE_WRITE__` | `"w"` | Open file for writing |
+| `__FILE_APPEND__` | `"a"` | Open file for appending |
+| `__FILE_RWC_` | `"rw"` | Create file if it doesn't exist |
+| `__FILE_WRC__` | `"wr"` | Truncate file to zero length |
 
 ## Process / Signals
 

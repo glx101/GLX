@@ -1,0 +1,9 @@
+
+visible persist [
+    handler = nil
+]
+
+label visit[] main()
+{
+    handler = read_file("./Test.glx", "")
+}
