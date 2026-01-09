@@ -1,12 +1,12 @@
 
 # Switch–Case in GLX
 
-```
+
 In GLX, the switch–case statement is a structured control-flow construct used to execute one block of code from multiple possibilities based on the value of a single evaluated expression. It is designed to be clean, readable, and deterministic, making it a better alternative to long chains of if–elif–else statements when checking one variable against multiple fixed values.
 In the given example:
 
 age = 2 + 3
-```
+
 
 
 the expression is evaluated first, producing the value 5. This value is then passed to the switch statement for comparison.
