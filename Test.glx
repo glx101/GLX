@@ -1,0 +1,5 @@
+
+
+for i _in_ ITERABLE[-5 .. 10] {
+	print(src=i)
+}
