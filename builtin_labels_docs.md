@@ -330,7 +330,7 @@
 ```
 res = imperium(
     program="ls",
-    args=["-la"]
+    args=[&l, "-la"]
 )
 
 exitcode = array_get(src=res, idx=0)

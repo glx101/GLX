@@ -1,0 +1,3 @@
+res = imperium(program="echo", args=[&l,"Hello, How are You"])
+
+print(src=res)
