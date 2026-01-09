@@ -318,3 +318,26 @@
 |`exit_code` 	| code		| to exit the current running program|
 
 |----------------------------------------------------------------------------
+
+|-----------------------------------------------------------------------------
+
+|`Label`             | Arguments                                 |       Description |
+
+|`imperium`|    |program (string), args (array)|    return array of [exitcode, output, status, ok, pending, err]
+
+|-----------------------------------------------------------------------------
+
+```
+res = imperium(
+    program="ls",
+    args=["-la"]
+)
+
+exitcode = array_get(src=res, idx=0)
+output   = array_get(src=res, idx=1)
+status   = array_get(src=res, idx=2)
+ok       = array_get(src=res, idx=3)
+pending  = array_get(src=res, idx=4)
+err      = array_get(src=res, idx=5)
+
+```
