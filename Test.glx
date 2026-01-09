@@ -1,13 +1,12 @@
-
-hexExample = 0x2A
-binExample = 0b101010
-octalExample = Oo52
-
-
-print(src=hexExample)
-print(src=binExample)
-print(src=octalExample)
-
-sum = 0b101010
-
-print(src=++sum)
+y = "danishk sinha"
+switch (y) {
+    case (22+(-5)) {
+        print(src="Working, Best")
+    }
+    case (20+2) {
+        print(src="Nice, working")
+    }
+    case ("danishk"+" sinha") {
+        print(src="Great")
+    }
+}
