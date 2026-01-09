@@ -19,3 +19,19 @@ switch (age) {
         print(src="No such age")
     }
 }
+
+
+os = "linux"
+
+switch (os) 
+{
+    case "win" {
+        print(src="Windows OS")
+    }
+    case "linux" {
+        print(src="Linux Os")
+    }
+    case "darvin" {
+        print(src="Macros")
+    }
+}

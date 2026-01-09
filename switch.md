@@ -46,6 +46,8 @@ This confirms that GLX switch–case behavior is expression-driven, safe, and no
 
 
 ```
+
+
 age = 2+ 3
 
 switch (age) {
@@ -66,4 +68,26 @@ switch (age) {
     }
 }
 
+
+os = "linux"
+
+switch (os) 
+{
+    case "win" {
+        print(src="Windows OS")
+    }
+    case "linux" {
+        print(src="Linux Os")
+    }
+    case "darvin" {
+        print(src="Macros")
+    }
+}
+}
+
+
+PATH=[/home/danishk/Documents/GLX] USER=[danishk]% ./Test.glx
+age is 5
+Linux Os
+PATH=[/home/danishk/Documents/GLX] USER=[danishk]%
 ```
