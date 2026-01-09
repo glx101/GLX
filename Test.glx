@@ -1,5 +1,13 @@
 
+hexExample = 0x2A
+binExample = 0b101010
+octalExample = Oo52
 
-for i _in_ ITERABLE[-5 .. 10] {
-	print(src=i)
-}
+
+print(src=hexExample)
+print(src=binExample)
+print(src=octalExample)
+
+sum = 0b101010
+
+print(src=++sum)
