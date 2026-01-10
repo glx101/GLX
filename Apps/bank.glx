@@ -1,0 +1,54 @@
+implement RoyalBank {
+
+    constructor(user_name=uname, user_password=upassword, user_id=uid)
+    {
+        name = uname
+        signature = upassword
+        id = uid
+
+        bank_account = [&d, 0:0]
+    }
+
+    create_account(init=money) {
+
+        user_dict = [&d,
+            "initial-money": money,
+            "signature": signature,
+            "id": id
+        ]
+
+        bank_account = dict_set(src=bank_account, key=name, value=user_dict)
+        return bank_account
+    }
+
+    withdraw(upassbook=my_passbook, withdraw_amount=amount) {
+
+        // 1) get user dictionary
+        user_dict = my_passbook[name]
+
+        // 2) read current money
+        current = user_dict["initial-money"]
+
+        // 3) check balance
+        if (amount > current) {
+            print(src="Not enough balance")
+            return my_passbook
+        }
+
+        // compute new balance
+        new_balance = current - amount
+
+        // update inner dict (IMPORTANT: reassign result)
+        user_dict = dict_set(src=user_dict, key="initial-money", value=new_balance)
+
+        // update outer dict (IMPORTANT: reassign result)
+        my_passbook = dict_set(src=my_passbook, key=name, value=user_dict)
+        return my_passbook
+    }
+}
+
+bank = new RoyalBank::(user_name="danishk", user_password="841205", user_id="1234")
+passbook = bank.RoyalBank.create_account(init=505)
+
+passbook = bank.RoyalBank.withdraw(upassbook=passbook, withdraw_amount=50)
+print(src=passbook["danishk"]["initial-money"])
