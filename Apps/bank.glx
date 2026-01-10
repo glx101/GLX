@@ -45,10 +45,25 @@ implement RoyalBank {
         my_passbook = dict_set(src=my_passbook, key=name, value=user_dict)
         return my_passbook
     }
+
+    credit(upassbook=my_passbook, amount=amount) {
+        user_dict = my_passbook[name]
+        current = user_dict["initial-money"]
+        new_balance = current + amount
+
+    
+
+        user_dict = dict_set(src=user_dict, key="initial-money", value=new_balance)
+        my_passbook = dict_set(src=my_passbook, key=name, value=user_dict)
+        return my_passbook
+    }
 }
 
 bank = new RoyalBank::(user_name="danishk", user_password="841205", user_id="1234")
 passbook = bank.RoyalBank.create_account(init=505)
 
 passbook = bank.RoyalBank.withdraw(upassbook=passbook, withdraw_amount=50)
+print(src=passbook["danishk"]["initial-money"])
+
+passbook = bank.RoyalBank.credit(upassbook=passbook, amount=550)
 print(src=passbook["danishk"]["initial-money"])
