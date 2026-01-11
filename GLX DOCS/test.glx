@@ -1,3 +1,13 @@
-res = imperium(program="echo", args=[&l,"Hello, How are You"])
+// Create shopping cart
+cart = [&l, "Apple", "Banana", "Orange"]
 
-print(src=res)
+// Display items
+print(src=ITER["cart">>array, 0])             // Output: Apple
+print(src=ITER["cart">>array, 1])             // Output: Banana
+print(src=ITER["cart">>array, 2])             // Output: Orange
+
+// Update items
+ITER["cart">>array, 0] = "Mango"
+ITER["cart">>array, 2] = "Grapes"
+
+print(src=cart)                                // Output: [Mango, Banana, Grapes]

@@ -14,18 +14,8 @@ trying a different approach in others.
 ## Replacement For Bash and Other Shells in the Linux World.
 
 
-### Installation
+## RUN GLX FILE
+>>> `+ FILE_NAME.glx`
 
->>>     sudo mv glx /usr/bin
->>>     sudo glx |or| glx
-
-### try to run .glx file
->>>     run glx as sudo
->>>     ./test.glx
-
-### run command
->>>     run glx as sudo
->>>     ls -lh          (example)
-
-### run one line repl
->>>  `>> print(src="Hello")`
+## RUN COMMAND
+>>> `<command>`

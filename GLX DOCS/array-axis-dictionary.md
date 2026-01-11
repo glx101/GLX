@@ -13,7 +13,7 @@ Now, beyond primitive data types, we have three data structures: array, axis, an
 ```
 
 ## Axis
-### Dynamic Size, FIx Type
+### Immutable, FIx Type
 
 ```
 
