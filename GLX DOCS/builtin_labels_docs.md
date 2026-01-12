@@ -11,26 +11,26 @@
 
 ## Array Builtins
 
-| Label            | Arguments               | Description                                                                                      |
-| ---------------- | ----------------------- | ------------------------------------------------------------------------------------------------ |
-| `array_new`      | `dest`                  | Creates a new empty array and assigns it to `dest`. Returns `true`.                              |
-| `array_len`      | `src`                   | Returns the length (`Int`) of array `src`.                                                       |
-| `array_is_empty` | `src`                   | Returns `true` if array `src` is empty, otherwise `false`.                                       |
-| `array_get`      | `src, idx`              | Returns the element at index `idx` from array `src`. Supports negative indexing.                 |
-| `array_set`      | `src, idx, value`       | Sets `value` at index `idx` in array `src`. Modifies array in-place. Returns `true`.             |
-| `array_push`     | `src, value`            | Appends `value` to the end of array `src`. Returns `true`.                                       |
-| `array_pop`      | `src`                   | Removes and **returns** the last element of array `src`.                                         |
-| `array_insert`   | `src, idx, value`       | Inserts `value` at index `idx` in array `src`. Supports negative indexing. Returns `true`.       |
-| `array_remove`   | `src, idx`              | Removes the element at index `idx` from array `src`. Supports negative indexing. Returns `true`. |
-| `array_clear`    | `src`                   | Removes all elements from array `src`. Returns `true`.                                           |
-| `array_clone`    | `src, dest`             | Creates a shallow copy of array `src` and assigns it to `dest`. Returns `true`.                  |
-| `array_slice`    | `src, start, end, dest` | Copies slice `src[start..end]` into `dest`. Supports negative indices. Returns `true`.           |
-| `array_concat`   | `src, tar, dest`        | Concatenates arrays `src` and `tar`, stores result in `dest`. Returns `true`.                    |
-| `array_reverse`  | `src`                   | Reverses array `src` in-place. Returns `true`.                                                   |
-| `array_sort`     | `src`                   | Sorts array `src` in-place. Supported types: `Int`, `UInt`, `Float`, `String`. Returns `true`.   |
-| `array_find`     | `src, value`            | Searches for `value` in array `src`. Returns index if found, otherwise `nil`.                    |
-| `array_contains` | `src, value`            | Returns `true` if array `src` contains `value`, otherwise `false`.                               |
-|------------------------------------------------------------------------------------------------------------------------------------------------
+| Label              | Arguments               | Description                                                                                      |
+|--------------------|-------------------------|--------------------------------------------------------------------------------------------------|
+| `array_new`        | `dest`                  | Creates a new empty array and assigns it to `dest`. Returns `true`.                              |
+| `array_len`        | `src`                   | Returns the length (`Int`) of array `src`.                                                       |
+| `array_is_empty`   | `src`                   | Returns `true` if array `src` is empty, otherwise `false`.                                       |
+| `array_get`        | `src, idx`              | Returns the element at index `idx` from array `src`. Supports negative indexing.                 |
+| `array_set`        | `src, idx, value`       | Sets `value` at index `idx` in array `src`. Modifies array in-place. Returns `true`.             |
+| `array_push`       | `src, value`            | Appends `value` to the end of array `src`. Returns `true`.                                       |
+| `array_pop`        | `src`                   | Removes and **returns** the last element of array `src`.                                         |
+| `array_insert`     | `src, idx, value`       | Inserts `value` at index `idx` in array `src`. Supports negative indexing. Returns `true`.       |
+| `array_remove`     | `src, idx`              | Removes the element at index `idx` from array `src`. Supports negative indexing. Returns `true`. |
+| `array_clear`      | `src`                   | Removes all elements from array `src`. Returns `true`.                                           |
+| `array_clone`      | `src, dest`             | Creates a shallow copy of array `src` and assigns it to `dest`. Returns `true`.                  |
+| `array_slice`      | `src, start, end, dest` | Copies slice `src[start..end]` into `dest`. Supports negative indices. Returns `true`.           |
+| `array_concat`     | `src, tar, dest`        | Concatenates arrays `src` and `tar`, stores result in `dest`. Returns `true`.                    |
+| `array_reverse`    | `src`                   | Reverses array `src` in-place. Returns `true`.                                                   |
+| `array_sort`       | `src`                   | Sorts array `src` in-place. Supported types: `Int`, `UInt`, `Float`, `String`. Returns `true`.   |
+| `array_find`       | `src, value`            | Searches for `value` in array `src`. Returns index if found, otherwise `nil`.                    |
+| `array_contains`   | `src, value`            | Returns `true` if array `src` contains `value`, otherwise `false`.                               |
+| `split_prompt_tok` | `src, dest`             | Splits a string prompt into tokens (respects double quotes) and stores result in `dest`. Returns `true`. |
 
 ## Directory Builtins
 

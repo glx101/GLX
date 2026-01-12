@@ -45,7 +45,7 @@ label visit[] str_prompt_split(source=user) {
         if !in_quote && ch == " " {
 
             if str_len(src=word) > 0 {
-                prompt = array_push(src=prompt, value=word)
+                array_push(src="prompt", value=word)
                 word = ""
             }
 
@@ -58,7 +58,7 @@ label visit[] str_prompt_split(source=user) {
 
     // push last token
     if str_len(src=word) > 0 {
-        prompt = array_push(src=prompt, value=word)
+        array_push(src="prompt", value=word)
     }
 
     return prompt
