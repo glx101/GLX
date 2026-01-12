@@ -20,64 +20,24 @@ implement File
         file_delete(path=desire_path)
     }
 
-    _write_(content=data) {
-        pass
+    _write_(content=_data_) {
+        ptr = file_open(path=desire_path, mode=__FILE_RWC_)
+        file_write(handle=ptr, data=_data_)
+        file_close(handle=ptr)
     }
 }
-
-
-label visit[] str_prompt_split(source=user) {
-
-    buf = str_split(src=user, sep="")
-    prompt = [&l, 0]
-    word = ""
-    in_quote = false
-
-    for ch _in_ buf {
-
-        // Toggle on the quote character
-        if ch == "\"" {
-            in_quote = !in_quote
-            continue
-        }
-
-        // Outside quotes: space ends a token
-        if !in_quote && ch == " " {
-
-            if str_len(src=word) > 0 {
-                array_push(src="prompt", value=word)
-                word = ""
-            }
-
-            continue
-        }
-
-        // Otherwise, keep accumulating
-        word = word + ch
-    }
-
-    // push last token
-    if str_len(src=word) > 0 {
-        array_push(src="prompt", value=word)
-    }
-
-    return prompt
-}
-
-
 
 label visit[] main()
 {
     while true 
     {   
         print(src="FS-CTR <path> <file> - create file")
+        print(src="FS-DEL <path> <file> - create file")
+        print(src="FS-WRITE <path> <file> <content> - create file")
+
         user = input(prompt="Enter Operation:  ")
 
-        buf = str_prompt_split(source=user)
-        print(src=buf)
-        process_exit(code=0)
-
-        /*
+        split_prompt_tok(src="user", dest="buf")
         command = ITER["buf" >> array, 0]
 
         switch (command) {
@@ -100,15 +60,18 @@ label visit[] main()
             }
 
             case "FS-WRITE" {
-                pass
+                fs_path = ITER["buf" >> array, 1]
+                fs_name = ITER["buf" >> array, 2]
+                fs_content = ITER["buf" >> array, 3]
+
+                fs = new File::(name=fs_name, path=fs_path)
+                fs.File._write_(content=fs_content)
             }
 
             default {
-                process_exit(code=1)
+                process_exit(code=0)
             }
         }
-    }
-    */
     }
 }
 

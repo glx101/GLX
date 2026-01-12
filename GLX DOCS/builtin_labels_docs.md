@@ -32,6 +32,23 @@
 | `array_contains`   | `src, value`            | Returns `true` if array `src` contains `value`, otherwise `false`.                               |
 | `split_prompt_tok` | `src, dest`             | Splits a string prompt into tokens (respects double quotes) and stores result in `dest`. Returns `true`. |
 
+
+> **Important Parameter Rules**
+>
+> - Parameters like `src`, `dest`, and `tar` **must be variable names provided as `String` values**, not direct arrays.
+> - Arrays in GLX are **environment-backed**, so all array operations work by referencing the array **by its name**.
+> - Example:
+>   ```glx
+>   array_new(dest="myArr")
+>   array_push(src="myArr", value=10)
+>   ```
+> - Passing an actual array value instead of its name will result in a **runtime error**.
+>
+> In short:
+> - `src` → **string name of an existing array**
+> - `dest` → **string name where result will be stored**
+> - `tar` → **string name of another array (when applicable)**
+
 ## Directory Builtins
 
 | Label | Arguments | Description |
