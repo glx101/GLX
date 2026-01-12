@@ -1,0 +1,115 @@
+
+
+implement File
+{
+    constructor(name=file_name, path=file_path) 
+    {
+        name = file_name
+        path = file_path
+        desire_path = str_concat(st=path, nd=name)
+    }
+
+
+    _create_() 
+    {
+        file_create(path=desire_path)
+    }
+
+    _delete_()
+    {
+        file_delete(path=desire_path)
+    }
+
+    _write_(content=data) {
+        pass
+    }
+}
+
+
+label visit[] str_prompt_split(source=user) {
+
+    buf = str_split(src=user, sep="")
+    prompt = [&l, 0]
+    word = ""
+    in_quote = false
+
+    for ch _in_ buf {
+
+        // Toggle on the quote character
+        if ch == "\"" {
+            in_quote = !in_quote
+            continue
+        }
+
+        // Outside quotes: space ends a token
+        if !in_quote && ch == " " {
+
+            if str_len(src=word) > 0 {
+                prompt = array_push(src=prompt, value=word)
+                word = ""
+            }
+
+            continue
+        }
+
+        // Otherwise, keep accumulating
+        word = word + ch
+    }
+
+    // push last token
+    if str_len(src=word) > 0 {
+        prompt = array_push(src=prompt, value=word)
+    }
+
+    return prompt
+}
+
+
+
+label visit[] main()
+{
+    while true 
+    {   
+        print(src="FS-CTR <path> <file> - create file")
+        user = input(prompt="Enter Operation:  ")
+
+        buf = str_prompt_split(source=user)
+        print(src=buf)
+        process_exit(code=0)
+
+        /*
+        command = ITER["buf" >> array, 0]
+
+        switch (command) {
+            case "FS-CTR" {
+                
+                fs_path = ITER["buf" >> array, 1]
+                fs_name = ITER["buf" >> array, 2]
+
+                fs = new File::(name=fs_name, path=fs_path)
+                fs.File._create_()
+            }
+
+            case "FS-DEL" {
+                
+                fs_path = ITER["buf" >> array, 1]
+                fs_name = ITER["buf" >> array, 2]
+
+                fs = new File::(name=fs_name, path=fs_path)
+                fs.File._delete_()
+            }
+
+            case "FS-WRITE" {
+                pass
+            }
+
+            default {
+                process_exit(code=1)
+            }
+        }
+    }
+    */
+    }
+}
+
+main()

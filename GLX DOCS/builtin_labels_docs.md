@@ -11,25 +11,26 @@
 
 ## Array Builtins
 
-| Label | Arguments | Description |
-|-------|-----------|-------------|
-| `array_new` | — | Creates a new empty array. |
-| `array_len` | src | Returns length of array src. |
-| `array_is_empty` | src | Returns true if array src is empty. |
-| `array_get` | src, idx | Returns element at index idx from array src. |
-| `array_set` | src, idx, value | Sets element at idx in src to value. |
-| `array_push` | src, value | Appends value to end of array src. |
-| `array_pop` | src | Removes and returns last element of array src. |
-| `array_insert` | src, idx, value | Inserts value into array src at index idx. |
-| `array_remove` | src, idx | Removes and returns element at idx in src. |
-| `array_clear` | src | Clears all elements of array src. |
-| `array_clone` | src | Returns a shallow clone of array src. |
-| `array_slice` | src, start, end | Returns slice of src from start to end. |
-| `array_concat` | st, nd | Returns new array = a followed by b. |
-| `array_reverse` | src | Reverses array src (in-place or returns reversed depending on impl). |
-| `array_sort` | src | Sorts array src (rules depend on your impl). |
-| `array_find` | src, value | Finds value in src (likely returns index or nil). |
-| `array_contains` | src, value | Returns true if src contains value. |
+| Label            | Arguments               | Description                                                                                      |
+| ---------------- | ----------------------- | ------------------------------------------------------------------------------------------------ |
+| `array_new`      | `dest`                  | Creates a new empty array and assigns it to `dest`. Returns `true`.                              |
+| `array_len`      | `src`                   | Returns the length (`Int`) of array `src`.                                                       |
+| `array_is_empty` | `src`                   | Returns `true` if array `src` is empty, otherwise `false`.                                       |
+| `array_get`      | `src, idx`              | Returns the element at index `idx` from array `src`. Supports negative indexing.                 |
+| `array_set`      | `src, idx, value`       | Sets `value` at index `idx` in array `src`. Modifies array in-place. Returns `true`.             |
+| `array_push`     | `src, value`            | Appends `value` to the end of array `src`. Returns `true`.                                       |
+| `array_pop`      | `src`                   | Removes and **returns** the last element of array `src`.                                         |
+| `array_insert`   | `src, idx, value`       | Inserts `value` at index `idx` in array `src`. Supports negative indexing. Returns `true`.       |
+| `array_remove`   | `src, idx`              | Removes the element at index `idx` from array `src`. Supports negative indexing. Returns `true`. |
+| `array_clear`    | `src`                   | Removes all elements from array `src`. Returns `true`.                                           |
+| `array_clone`    | `src, dest`             | Creates a shallow copy of array `src` and assigns it to `dest`. Returns `true`.                  |
+| `array_slice`    | `src, start, end, dest` | Copies slice `src[start..end]` into `dest`. Supports negative indices. Returns `true`.           |
+| `array_concat`   | `src, tar, dest`        | Concatenates arrays `src` and `tar`, stores result in `dest`. Returns `true`.                    |
+| `array_reverse`  | `src`                   | Reverses array `src` in-place. Returns `true`.                                                   |
+| `array_sort`     | `src`                   | Sorts array `src` in-place. Supported types: `Int`, `UInt`, `Float`, `String`. Returns `true`.   |
+| `array_find`     | `src, value`            | Searches for `value` in array `src`. Returns index if found, otherwise `nil`.                    |
+| `array_contains` | `src, value`            | Returns `true` if array `src` contains `value`, otherwise `false`.                               |
+|------------------------------------------------------------------------------------------------------------------------------------------------
 
 ## Directory Builtins
 

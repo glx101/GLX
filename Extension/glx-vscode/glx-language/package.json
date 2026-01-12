@@ -1,0 +1,35 @@
+{
+  "name": "glx-language",
+  "displayName": ".glx",
+  "description": "",
+  "publisher": "danishk",
+  "version": "0.0.1",
+  "engines": {
+    "vscode": "*"
+  },
+  "categories": [
+    "Programming Languages"
+  ],
+  "contributes": {
+    "languages": [
+      {
+        "id": "glx",
+        "aliases": [
+          "glx",
+          "glx"
+        ],
+        "extensions": [
+          ".glx"
+        ],
+        "configuration": "./language-configuration.json"
+      }
+    ],
+    "grammars": [
+      {
+        "language": "glx",
+        "scopeName": "source.glx",
+        "path": "./syntaxes/glx.tmLanguage.json"
+      }
+    ]
+  }
+}

@@ -1,0 +1,130 @@
+{
+  "name": "GLX",
+  "scopeName": "source.glx",
+  "patterns": [
+    { "include": "#comments" },
+    { "include": "#strings" },
+    { "include": "#numbers" },
+    { "include": "#keywords" },
+    { "include": "#types" },
+    { "include": "#macros" },
+    { "include": "#labels" },
+    { "include": "#operators" },
+    { "include": "#iter" },
+    { "include": "#bitwise" },
+    { "include": "#collections" },
+    { "include": "#builtins" }
+  ],
+
+  "builtins": {
+    "patterns": [
+      {
+        "name": "support.function.builtin.glx",
+        "match": "\\b(print|typeof|cast_type|input|array_new|array_len|array_is_empty|array_get|array_set|array_push|array_pop|array_insert|array_remove|array_clear|array_clone|array_slice|array_concat|array_reverse|array_sort|array_find|array_contains|dir_create|dir_remove|dir_exists|dir_is_dir|dir_is_empty|dir_current|dir_parent|dir_change|dir_open|dir_close|dir_read|dir_read_all|dir_iter|dir_walk|dir_glob|dir_rename|dir_move|dir_copy|dir_size|dir_permissions|dir_modified_time|file_open|file_close|file_permissions|file_modified_time|file_created_time|file_access_time|file_create|file_read|file_read_all|file_write|file_append|file_truncate|file_delete|file_exists|file_size|file_move|math_abs|math_cbrt|math_ceil|math_cos|math_exp|math_floor|math_log10|math_log|math_round|math_sin|math_sqrt|math_tan|math_pow|math_min|math_max|str_len|str_empty|str_clone|str_upper|str_lower|str_trim|str_capitalize|str_reverse|str_concat|str_compare|str_contains|str_starts_with|str_ends_with|str_find|str_count|str_replace|str_slice|str_split|str_join|str_hash|process_cwd|process_set_cwd|process_env_get|process_env_set|process_env_unset|process_id|process_parent_id|process_group_id|process_session_id|process_uptime|process_spawn|process_exec|process_is_alive|process_status|process_wait|process_kill|process_signal|process_suspend|process_resume|process_exit|dict_new|dict_len|dict_is_empty|dict_get|dict_set|dict_remove|dict_clear|dict_clone|dict_contains_key|dict_contains_value|dict_keys|dict_values|dict_items|dict_merge|dict_update|dict_pop|dict_popitem|dict_default|dict_map|dict_filter|mem_layout|mem_alloc|mem_realloc|mem_free|mem_write_byte|mem_read_byte|mem_write|mem_read|mem_ptr|thread_spawn|thread_join|thread_detach|thread_is_alive|thread_id|thread_kill|thread_park|thread_unpark|thread_sleep|thread_yield|time_now|time_epoch|time_monotonic|time_sleep|time_nanosleep|time_utc|time_local|time_year|time_month|time_day|time_hour|time_minute|time_second|time_millisecond|time_format|time_parse|time_duration_new|time_duration_add|time_duration_sub|time_diff|net_socket_new|net_socket_close|net_socket_bind|net_socket_listen|net_socket_accept|net_socket_connect|net_socket_send|net_socket_recv|net_socket_sendto|net_socket_recvfrom|net_socket_set_timeout|net_socket_set_blocking|net_socket_shutdown|net_socket_peer|net_socket_local|net_socket_set_reuseaddr|net_socket_set_nodelay|net_socket_set_keepalive|net_socket_get_error|net_poll|net_select|net_dns_lookup|net_ip_parse|net_ip_is_ipv4|net_ip_is_ipv6|net_http_get|net_http_post|net_interface_list|net_interface_up|net_mac_address|net_addr|json_parse|json_stringify|json_validate|json_pretty|json_minify|json_get|json_set|json_has|json_remove|json_keys|json_values|json_type|json_merge|json_clone|json_equal|json_number|json_string|json_bool|json_array|json_dictionary|random_int|random_float|random_bool|random_choice|random_bytes|exit_code|imperium)\\b(?=\\s*\\()"
+      }
+    ]
+  },
+
+  "repository": {
+    "comments": {
+      "patterns": [
+        { "name": "comment.line.glx", "match": "//.*$" },
+        { "name": "comment.block.glx", "begin": "/\\*", "end": "\\*/" }
+      ]
+    },
+    "strings": {
+      "patterns": [
+        {
+          "name": "string.quoted.double.glx",
+          "begin": "\"",
+          "end": "\"",
+          "patterns": [
+            { "name": "constant.character.escape.glx", "match": "\\\\." }
+          ]
+        }
+      ]
+    },
+    "numbers": {
+      "patterns": [
+        { "name": "constant.numeric.hex.glx", "match": "\\b0x[0-9A-Fa-f]+\\b" },
+        { "name": "constant.numeric.binary.glx", "match": "\\b0b[01]+\\b" },
+        { "name": "constant.numeric.octal.glx", "match": "\\bOo[0-7]+\\b" },
+        { "name": "constant.numeric.float.glx", "match": "\\b\\d+\\.\\d+\\b" },
+        { "name": "constant.numeric.int.glx", "match": "\\b\\d+\\b" }
+      ]
+    },
+    "keywords": {
+      "patterns": [
+        {
+          "name": "keyword.control.glx",
+          "match": "\\b(if|elif|else|switch|case|default|for|while|do|break|continue|return|pass|jump|import|implement|constructor|new|visible|label|visit)\\b"
+        },
+        {
+          "name": "constant.language.glx",
+          "match": "\\b(true|false|Nil|null)\\b"
+        }
+      ]
+    },
+    "types": {
+      "patterns": [
+        {
+          "name": "storage.type.glx",
+          "match": "\\b(ByteI|ByteU|Int|UInt|Float|BigInt|String|Bool|Char|Nil)\\b"
+        }
+      ]
+    },
+    "macros": {
+      "patterns": [
+        {
+          "name": "keyword.other.macro.glx",
+          "match": "\\b(_define_|_ifndef_|_endif_|_undef_)\\b"
+        },
+        {
+          "name": "keyword.other.macro.call.glx",
+          "match": "#[A-Za-z_][A-Za-z0-9_]*"
+        }
+      ]
+    },
+    "labels": {
+      "patterns": [
+        {
+          "name": "entity.name.function.glx",
+          "match": "\\b[A-Za-z_][A-Za-z0-9_]*\\s*(?=\\()"
+        }
+      ]
+    },
+    "operators": {
+      "patterns": [
+        {
+          "name": "keyword.operator.glx",
+          "match": "(\\+\\+|--|==|!=|>=|<=|&&|\\|\\||\\+|-|\\*|/|%|>|<|=|!)"
+        }
+      ]
+    },
+    "iter": {
+      "patterns": [
+        {
+          "name": "keyword.operator.iter.glx",
+          "match": "\\bITER\\b"
+        }
+      ]
+    },
+    "bitwise": {
+      "patterns": [
+        {
+          "name": "keyword.operator.bitwise.glx",
+          "match": "\\b(_and_|_or_|_com_|_lsh_|_rsh_)\\b"
+        }
+      ]
+    },
+    "collections": {
+      "patterns": [
+        {
+          "name": "constant.other.collection.glx",
+          "match": "\\[\\s*(&l|&a|&d)\\s*,"
+        }
+      ]
+    }
+  },
+  "uuid": "9d78b9a1-2f6d-4b7f-b8bb-111122223333"
+}
