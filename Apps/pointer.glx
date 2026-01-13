@@ -1,0 +1,26 @@
+
+name = "danishk"
+
+_ptr_ ptr1 = _addr_ name
+_ptr_ ptr2 = _addr_ ptr1
+_ptr_ ptr3 = _addr_ ptr2
+
+
+print(src=_deref_[[[ptr3]]])
+
+
+_ptr_ ptr4 = _addr_ ptr3
+print(src=_deref_[[[[ptr4]]]])
+
+_deref_[[[[ptr4]]]] = "Alice"
+print(src=_deref_[[[[ptr4]]]])
+
+
+label visit[] show(ptr=ptr4) 
+{
+    _deref_[[[[ptr4]]]] = "Anoop Sinha"
+    return nil
+}
+
+show(ptr=ptr4)
+print(src=_deref_[[[[ptr4]]]])
