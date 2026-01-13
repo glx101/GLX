@@ -338,3 +338,9 @@ ok       = array_get(src=res, idx=3)
 pending  = array_get(src=res, idx=4)
 err      = array_get(src=res, idx=5)
 ```
+
+### POINTER
+| Label | Arguments | Desc |
+|----------------------------|
+|`_ptr_add_` | ptr (as string), step (as u32) | Adjust pointer sequence element|
+|------------------------------------------------------------------------------|
