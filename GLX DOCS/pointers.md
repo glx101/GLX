@@ -233,20 +233,3 @@ In GLX, after defining a pointer to the start of an array, you can use `_ptr_add
 ## Important Consideration
 
 Make sure to use `_ptr_add_` only with pointers that reference arrays or axes. Using it with pointers to single variables that are not part of a sequence can lead to invalid pointer references. This function essentially makes pointer arithmetic in GLX more convenient and safe when dealing with collections.
-
-# Note on Pointer Arithmetic and `_ptr_add_`
-
-In many cases, you might find that using the direct plus (`+`) operator for pointer arithmetic doesn't work as expected in GLX. This is because GLX does not always support normal arithmetic operators on pointers, especially when those pointers are referencing single variables (like integers or strings) rather than arrays or sequential memory blocks.
-
-## Where the Plus Operator Won't Work
-
-- **Single Variables:** If your pointer points to a single variable (like an integer or a string), applying the `+` operator directly to it may cause an error. GLX does not universally support arithmetic on all pointers.
-
-- **Non-Sequential Memory Objects:** Similarly, if a pointer references an object that is not stored in continuous memory, using the `+` operator to increment it might not work as intended and can lead to errors.
-
-## When to Use `_ptr_add_`
-
-- **Arrays or Axes:** When you want to move pointers between elements of an array or an axis, you should use the `_ptr_add_` function. This function ensures that the pointer moves correctly to the next element without creating invalid references.
-
-In summary, use `_ptr_add_` whenever you need to safely navigate through arrays or axes. This approach helps you avoid errors that occur when using the `+` operator directly on pointers that are not meant for arithmetic operations.
-

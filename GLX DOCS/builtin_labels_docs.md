@@ -341,6 +341,9 @@ err      = array_get(src=res, idx=5)
 
 ### POINTER
 | Label | Arguments | Desc |
-|----------------------------|
+
+|--------------------------|
+
 |`_ptr_add_` | ptr (as string), step (as u32) | Adjust pointer sequence element|
+
 |------------------------------------------------------------------------------|
