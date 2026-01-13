@@ -176,3 +176,38 @@ GLX pointers make the language modern, expressive, and powerful.
 >Parent and Current Scope Usage: Use pointers when you are sure that the target variable will stay alive in the current or parent scope. This ensures that the pointer can safely access the variable.
 >Avoid Cross-Scope Pointers: Do not use pointers that refer to variables in a scope that might end before the pointer is done being used. This will lead to invalid pointer errors.
 >By following these precautions, you ensure that your pointers remain safe and that you avoid runtime errors related to scope. This makes your GLX programs more robust and reliable.
+
+## 11. Array / Axis Pointer Arithmetic (NEW FEATURE)
+
+```
+GLX pointers can also point to Arrays or Axes (lists/tuples) and support C-style pointer arithmetic.
+
+Key Behavior
+
+_addr_ arr returns the address of the first element (arr[0])
+
+Adding an integer to a pointer moves it to the next element
+
+Dereferencing reads or writes the element at the current pointer position
+
+Example
+arr = [&l, 10, 20, 30, 40]
+
+_ptr_ p = _addr_ arr  
+
+print(src=_deref_[p])    # 10
+
+p = p + 1
+_deref_[p] = 99
+print(src=_deref_[p])    # 99
+
+p = p + 1
+print(src=_deref_[p])    # 30
+
+Explanation
+p → arr[0] → 10
+p + 1 → arr[1] → 20 → overwritten to 99
+p + 2 → arr[2] → 30
+```
+
+>>> This allows sequential traversal and modification of array elements using pointers.
