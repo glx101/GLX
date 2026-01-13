@@ -1,4 +1,4 @@
-visible persist [
+FS-CTR /home/danishk/ okok.txtvisible persist [
     ptr = cast_type(value=0, type=__UINT__),
     data = cast_type(value="", type=__STRING__)
 ]

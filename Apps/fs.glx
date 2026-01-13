@@ -1,39 +1,34 @@
-
-
 implement File
 {
-    constructor(name=file_name, path=file_path) 
-    {
-        name = file_name
-        path = file_path
+    constructor(name=name, path=path) {
+        // Simply store the concatenated path as a field
         desire_path = str_concat(st=path, nd=name)
     }
 
-
-    _create_() 
-    {
+    _create_() {
+        // Directly use the stored string
         file_create(path=desire_path)
     }
 
-    _delete_()
-    {
+    _delete_() {
         file_delete(path=desire_path)
     }
 
-    _write_(content=_data_) {
+    _write_(data=content) {
         ptr = file_open(path=desire_path, mode=__FILE_RWC_)
-        file_write(handle=ptr, data=_data_)
+        file_write(handle=ptr, data=content)
         file_close(handle=ptr)
     }
 }
 
 label visit[] main()
 {
-    while true 
-    {   
+    while true
+    {
         print(src="FS-CTR <path> <file> - create file")
-        print(src="FS-DEL <path> <file> - create file")
-        print(src="FS-WRITE <path> <file> <content> - create file")
+        print(src="FS-DEL <path> <file> - delete file")
+        print(src="FS-WRITE <path> <file> <content> - write file")
+        print(src="Default: exit")
 
         user = input(prompt="Enter Operation:  ")
 
@@ -42,7 +37,6 @@ label visit[] main()
 
         switch (command) {
             case "FS-CTR" {
-                
                 fs_path = ITER["buf" >> array, 1]
                 fs_name = ITER["buf" >> array, 2]
 
@@ -51,7 +45,6 @@ label visit[] main()
             }
 
             case "FS-DEL" {
-                
                 fs_path = ITER["buf" >> array, 1]
                 fs_name = ITER["buf" >> array, 2]
 
@@ -65,7 +58,7 @@ label visit[] main()
                 fs_content = ITER["buf" >> array, 3]
 
                 fs = new File::(name=fs_name, path=fs_path)
-                fs.File._write_(content=fs_content)
+                fs.File._write_(data=fs_content)
             }
 
             default {

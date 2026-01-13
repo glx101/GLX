@@ -1,21 +1,15 @@
-# Hello everybody, for those who use bash —
+# GLX
 
-```
-I am currently working on a new hight-level system shell programming language called GLX. 
-The name “glx” is meant to stand for a Gnu'Language X. This is just a hobby project and is not
-intended to be big or professional like existing shells. Glx is interpreter-based and focuses on 
-dynamic data types and high-level logical control, aiming to be a simpler and more predictable 
-alternative to bash. The project has been brewing for some time and is slowly becoming usable. 
-I’m planning to release it in January 2026, and I’d appreciate any feedback on what people like 
-or dislike in bash or other shells, since GLX borrows some ideas for practical reasons while 
-trying a different approach in others.
-```
-
-## Replacement For Bash and Other Shells in the Linux World.
+>I am currently working on a new high-level system shell–oriented programming language called GLX.
+>The name “GLX” stands for “GNU Language X”.
 
 
-## RUN GLX FILE
->>> `+ FILE_NAME.glx`
+>The language focuses on dynamic data types, high-level logical control, and predictable behavior.
+>While GLX borrows some familiar ideas from traditional shells for practical reasons, it intentionally
+>takes a different approach to reduce common pitfalls found in shell scripting, such as confusing
+>syntax, implicit behavior, and fragile string handling.
 
-## RUN COMMAND
->>> `<command>`
+>This project has been brewing for some time and is gradually becoming usable. I am planning an
+>initial public release around January 2026. I would greatly appreciate feedback from people who
+>work with Bash or other shells—specifically what you like, what frustrates you, and what you feel
+>could be improved in system scripting languages.
